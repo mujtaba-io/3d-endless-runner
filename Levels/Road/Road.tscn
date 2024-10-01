@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdjymflxpmy5n"]
+
+[ext_resource type="Script" path="res://Levels/MovingObject.gd" id="1_2o2k1"]
+[ext_resource type="PackedScene" uid="uid://yo57nyq2grx2" path="res://assets/snowy_road/snowy_road_v3-modif.glb" id="2_rm673"]
+
+[node name="Road" type="Node3D"]
+script = ExtResource("1_2o2k1")
+
+[node name="snowy_road_v3-modif" parent="." instance=ExtResource("2_rm673")]
+transform = Transform3D(-0.0593291, 0, 1.69896, 0, 1.7, 0, -1.69896, 0, -0.0593291, 0, 0, 0)

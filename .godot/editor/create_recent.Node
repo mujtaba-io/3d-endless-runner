@@ -1,0 +1,9 @@
+DirectionalLight3D
+AnimatedSprite3D
+WorldEnvironment
+MeshInstance3D
+CollisionShape3D
+Area3D
+Node3D
+ColorRect
+Timer

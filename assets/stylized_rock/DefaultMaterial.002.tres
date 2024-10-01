@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://btvhat71avxxg"]
+
+[ext_resource type="Texture2D" uid="uid://bco0qh1ippt2f" path="res://assets/stylized_rock/one_more_stylized_rock_-_game-ready__free_0.png" id="1_ar7or"]
+[ext_resource type="Texture2D" uid="uid://nfvjwlgntswt" path="res://assets/stylized_rock/one_more_stylized_rock_-_game-ready__free_2.png" id="3_f5eqw"]
+
+[resource]
+resource_name = "DefaultMaterial.002"
+cull_mode = 2
+albedo_texture = ExtResource("1_ar7or")
+normal_enabled = true
+normal_texture = ExtResource("3_f5eqw")

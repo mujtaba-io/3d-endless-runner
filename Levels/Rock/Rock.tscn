@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bogqfm6wc3xl3"]
+
+[ext_resource type="Script" path="res://Levels/MovingObject.gd" id="1_wchxa"]
+[ext_resource type="PackedScene" uid="uid://sb0u8ewums5q" path="res://assets/stylized_rock/one_more_stylized_rock_-_game-ready__free.glb" id="2_85ra8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qoj76"]
+radius = 0.814972
+
+[node name="Rock" type="Node3D"]
+script = ExtResource("1_wchxa")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_85ra8")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.612822, 0)
+shape = SubResource("SphereShape3D_qoj76")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

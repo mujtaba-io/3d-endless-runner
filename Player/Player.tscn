@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2a5i2mnt6gur"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dgkfdqui7nsoo" path="res://assets/stylized_lowpoly_char/stylized_low_poly_animated_character.glb" id="2_ngmab"]
+[ext_resource type="AudioStream" uid="uid://brlwwb6hww3tg" path="res://assets/sounds/coinpickup.wav" id="3_6lajn"]
+
+[sub_resource type="CapsuleShape3D" id="1"]
+
+[node name="Player" type="CharacterBody3D" groups=["players"]]
+script = ExtResource("2")
+
+[node name="Character" parent="." instance=ExtResource("2_ngmab")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.895648, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("1")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 2.899, 2.391)
+
+[node name="collision_area" type="Area3D" parent="."]
+
+[node name="collision_shape" type="CollisionShape3D" parent="collision_area"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
+shape = SubResource("1")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0383425, -0.0230479, 0.0360441)
+stream = ExtResource("3_6lajn")
+volume_db = 12.467
+
+[node name="gui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="label" type="Label" parent="gui"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 14.0
+text = "Coins: "
+
+[connection signal="area_entered" from="collision_area" to="." method="_on_collision_area_entered"]
